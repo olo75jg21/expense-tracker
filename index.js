@@ -2,8 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
+const passport = require('passport');
 
 const keys = require('./config/keys');
+
+require('./models/userModel');
+require('./services/passport');
 
 mongoose.connect(keys.mongoURI, {
     useNewUrlParser: true,
@@ -20,10 +24,10 @@ app.use(cookieSession({
   keys: [keys.cookieKey],
   maxAge: 2 * 24 * 60 * 60 * 1000 // 48h
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.get('/', (req, res) => {
-  res.send("Hello");
-});
+require('./routes/authRoutes')(app);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
