@@ -19,4 +19,37 @@ module.exports = (app) => {
     await expenseTransaction.save();
     res.send(expenseTransaction);
   });
+
+  // get all incomes
+  app.get('/api/getAllExpense', requireLogin, async (req, res) => {
+    try {
+      const expenses = await ExpenseTransaction.find({ _user: req.user.id });
+      res.send(expenses);
+    } catch (e) {
+      res.status(400).send({ error: e });
+    }
+  });
+
+  // get single income
+  app.get('/api/getExpense/:id', requireLogin, async (req, res) => {
+    try {
+      const { id } = req.params;
+      const expense = await ExpenseTransaction.find({ _user: req.user.id, _id: id })
+      res.send(expense);
+    } catch (e) {
+      res.status(400).send({ error: e });
+    }
+  });
+
+  // delete single income
+  app.delete('/api/deleteExpense/:id', requireLogin, async (req, res) => {
+    try {
+      const { id } = req.params;
+      const expense = await ExpenseTransaction.findOneAndDelete({ _user: req.user.id, _id: id });
+      res.send(expense);
+    } catch (e) {
+      res.status(400).send({ error: e });
+    }
+  });
+
 };
