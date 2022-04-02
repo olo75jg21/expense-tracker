@@ -11,15 +11,17 @@ import Welcome from './Welcome';
 const App = () => {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route exact path="/dashboard" element={<Dashboard />} />
-        <Route exact path="/incomes" element={<Incomes />} />
-        <Route exact path="/expenses" element={<Expenses />} />
-        <Route exact path="/settings" element={<Settings />} />
-        <Route path="*" element={<h1>There is nothing here!</h1>} />
-      </Routes>
+      <div className="container">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/incomes" element={<Incomes />} />
+          <Route exact path="/expenses" element={<Expenses />} />
+          <Route exact path="/settings" element={<Settings />} />
+          <Route path="*" element={<h1>There is nothing here!</h1>} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
