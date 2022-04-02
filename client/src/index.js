@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import reduxThunk from 'redux-thunk';
 
-import reducer from './reducers';
+import reducers from './reducers';
 
 import App from './components/App';
 
@@ -12,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import axios from "axios";
 // window.axios = axios;
 
-const store = createStore(reducer);
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
   <Provider store={store}>

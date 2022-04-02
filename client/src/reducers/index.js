@@ -1,5 +1,7 @@
 import { combineReducers } from "redux";
 
+import authReducer from "./authReducer";
+
 export default combineReducers({
-  elo: () => '123'
+  auth: authReducer,
 });

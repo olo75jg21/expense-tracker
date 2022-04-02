@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useDispatch } from "react-redux";
 
 import Dashboard from './Dashboard';
 import Expenses from './Expenses';
@@ -8,7 +9,16 @@ import Incomes from './Incomes';
 import Settings from './Settings';
 import Welcome from './Welcome';
 
+import { fetchUser } from '../actions/index';
+
 const App = () => {
+  const dispatch = useDispatch();
+
+  // every time componenet renders, check if user is logged in
+  useEffect(() => {
+    return dispatch(fetchUser());
+  });
+
   return (
     <BrowserRouter>
       <div className="container">
