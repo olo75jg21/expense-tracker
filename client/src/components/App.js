@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 
-import Dashboard from './Dashboard';
+import Dashboard from './dashboard/Dashboard';
 import Expenses from './Expenses';
 import Header from './Header';
 import Incomes from './Incomes';
@@ -16,7 +16,7 @@ const App = () => {
 
   // every time componenet renders, check if user is logged in
   useEffect(() => {
-    return dispatch(fetchUser());
+    dispatch(fetchUser());
   });
 
   return (

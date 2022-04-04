@@ -41,7 +41,7 @@ const Header = () => {
     <div>
       <Navbar bg="light" expand="lg" >
         <Container>
-          <LinkContainer to={auth ? '/dashboard' : '/'}>
+          <LinkContainer to={'/'}>
             <Navbar.Brand>Expense Tracker</Navbar.Brand>
           </LinkContainer>
           <Navbar.Collapse id="basic-navbar-nav">
