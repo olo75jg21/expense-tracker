@@ -12,7 +12,7 @@ export default function foo(state = initialIncomeState, action) {
     case ADD_INCOME:
       return {
         ...state,
-        initialIncomeState: [...state.initialIncomeState, action.payload]
+        initialIncomeState: [...state, action.payload]
       };
     default:
       return state;
