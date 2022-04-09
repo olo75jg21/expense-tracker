@@ -17,7 +17,7 @@ const App = () => {
   // every time componenet renders, check if user is logged in
   useEffect(() => {
     dispatch(fetchUser());
-  });
+  }, []);
 
   return (
     <BrowserRouter>

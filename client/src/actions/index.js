@@ -3,6 +3,7 @@ import axios from 'axios';
 import {
   FETCH_USER,
   GET_INCOMES,
+  ADD_INCOME,
   GET_EXPENSES
 } from './types';
 
@@ -17,6 +18,12 @@ export const getIncomes = () => async (dispatch) => {
 
   dispatch({ type: GET_INCOMES, payload: res.data });
 };
+
+export const addIncome = (income) => async (dispatch) => {
+  const res = await axios.post('/api/createIncome', income);
+
+  dispatch({ type: ADD_INCOME, payload: res.data});
+}
 
 export const getExpenses = () => async (dispatch) => {
   const res = await axios.get('/api/getAllExpense');

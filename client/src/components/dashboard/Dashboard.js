@@ -2,11 +2,45 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getIncomes, getExpenses } from '../../actions';
 
-const Summary = (props) => {
+import {
+  Button,
+  Container,
+  Row,
+  Col,
+  Card
+} from 'react-bootstrap';
+
+import { LinkContainer } from 'react-router-bootstrap';
+
+const renderSummaryTitle = (amount, title) => {
   return (
     <div>
-      <h2>{props.title}</h2>
-      <p>{props.amount}</p>
+      {amount === 0 && title !== 'Balance' ? <p>Add your first {title}</p> : <p>{`Total ${title}`}</p>}
+    </div>
+  );
+}
+
+const renderCardLinkButton = (title) => {
+  return (
+    <LinkContainer to={`/${title.toLowerCase()}s`}>
+      <Button variant="secondary">+</Button>
+    </LinkContainer>
+  );
+};
+
+const Summary = ({ title, amount }) => {
+  return (
+    <div>
+      <Card style={{ height: '7rem', marginTop: '0.5rem'}}>
+        <Card.Body>
+          <Card.Title>
+            {renderSummaryTitle(amount, title)}
+          </Card.Title>
+          <Card.Text>
+            {amount || title === 'Balance' ? amount : renderCardLinkButton(title)}
+          </Card.Text>
+        </Card.Body>
+      </Card>
     </div>
   );
 }
@@ -23,39 +57,38 @@ const Dashboard = () => {
     dispatch(getExpenses());
   }, []);
 
-  // don't work
   if (!auth) {
     return (
       <div>
-        <h1>Please, log in</h1>
+        <p>Please, log in</p>
       </div>
     )
   }
 
-  // Idk why it works now without it
-  // if (income === []) {
-  //   return (
-  //     <div className='container'>
-  //       <h0 className='text-center'>You need to configure your wallet</h0>
-  //       <button href="/incomes">Create Income</button>
-  //     </div>
-  //   );
-  // }
-
   return (
     <div>
-      <Summary
-        title="Total income"
-        amount={calculate(income)}
-      />
-      <Summary
-        title="Total expense"
-        amount={calculate(expense)}
-      />
-      <Summary
-        title="Total Balance"
-        amount={calculateBalance(expense, income)}
-      />
+      <Container>
+        <Row className='justify-content-md-center'>
+          <Col>
+            <Summary
+              title="Income"
+              amount={calculate(income)}
+            />
+          </Col>
+          <Col>
+            <Summary
+              title="Expense"
+              amount={calculate(expense)}
+            />
+          </Col>
+          <Col>
+            <Summary
+              title="Balance"
+              amount={calculateBalance(expense, income)}
+            />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };
@@ -65,11 +98,10 @@ const calculate = (arr) => {
   arr.forEach(item => sum += item.amount);
 
   return sum;
-} 
+}
 
 const calculateBalance = (expensesArr, incomesArr) => {
   return calculate(incomesArr) - calculate(expensesArr);
 }
-
 
 export default Dashboard;
