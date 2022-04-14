@@ -12,10 +12,16 @@ require('./models/ExpenseTransaction');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  }
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}
 );
+
+mongoose.connection.once('open', function () {
+  console.log('Connection has been made');
+}).on('error', function (error) {
+  console.log('Connection Error: ', error);
+});
 
 const port = process.env.PORT || 5000;
 const app = express();

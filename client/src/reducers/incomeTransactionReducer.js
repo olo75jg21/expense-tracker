@@ -3,16 +3,18 @@ import {
   ADD_INCOME
 } from "../actions/types";
 
-const initialIncomeState = [];
+const initialState = {
+  incomes: []
+};
 
-export default function foo(state = initialIncomeState, action) {
+export default function foo(state = initialState, action) {
   switch (action.type) {
     case GET_INCOMES: 
       return action.payload;
     case ADD_INCOME:
       return {
         ...state,
-        initialIncomeState: [...state, action.payload]
+        incomes: [...state.incomes, action.payload]
       };
     default:
       return state;
