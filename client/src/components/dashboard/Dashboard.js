@@ -95,7 +95,7 @@ const Dashboard = () => {
 
 const calculate = (arr) => {
   let sum = 0;
-  arr.forEach(item => sum += item.amount);
+  Array.from(arr).forEach(item => sum += item.amount);
 
   return sum;
 }

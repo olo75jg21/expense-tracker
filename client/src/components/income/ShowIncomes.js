@@ -1,9 +1,16 @@
 import React from "react";
 
-const ShowIncomes = () => {
+// import ShowIncome from "./ShowIncome";
+
+const ShowIncomes = ({incomes}) => {
   return (
     <div>
-      ShowIncomes.js
+      {
+        incomes.map((income) => (<p key={income._id}>{income.amount}</p>))
+      }
+      {
+        console.log(incomes)
+      }
     </div>
   );
 };

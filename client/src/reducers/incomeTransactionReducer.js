@@ -9,7 +9,7 @@ const initialState = {
 
 export default function foo(state = initialState, action) {
   switch (action.type) {
-    case GET_INCOMES: 
+    case GET_INCOMES:
       return action.payload;
     case ADD_INCOME:
       return {
