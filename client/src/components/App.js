@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import Dashboard from './dashboard/Dashboard';
 import Expenses from './Expenses';
 import Header from './Header';
-import Incomes from './Incomes';
+import Incomes from './income/Incomes';
 import Settings from './Settings';
 import Welcome from './Welcome';
 
