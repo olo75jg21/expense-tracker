@@ -22,13 +22,13 @@ const Incomes = () => {
       <div>
         <p>Please, log in</p>
       </div>
-    )
+    );
   }
 
   return (
     <div>
       <AddIncomeForm />
-      <ShowIncomes incomes={incomes}/>
+      <ShowIncomes />
     </div>
   );
 };

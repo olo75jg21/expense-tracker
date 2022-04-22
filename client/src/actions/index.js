@@ -4,6 +4,7 @@ import {
   FETCH_USER,
   GET_INCOMES,
   ADD_INCOME,
+  DELETE_INCOME,
   GET_EXPENSES
 } from './types';
 
@@ -23,6 +24,12 @@ export const addIncome = (income) => async (dispatch) => {
   const res = await axios.post('/api/createIncome', income);
 
   dispatch({ type: ADD_INCOME, payload: res.data});
+}
+
+export const deleteIncome = (id) => async (dispatch) => {
+  const res = await axios.delete(`/api/deleteIncome/${id}`);
+
+  dispatch({ type: DELETE_INCOME, payload: res.data});
 }
 
 export const getExpenses = () => async (dispatch) => {
