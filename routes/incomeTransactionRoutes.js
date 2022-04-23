@@ -56,4 +56,16 @@ module.exports = (app) => {
       res.status(400).send({ error: e });
     }
   });
+
+  app.put('/api/updateIncome/:id', requireLogin, async (req, res) => {
+    try {
+      const { id } = req.params;
+      const income = await IncomeTransaction.findOneAndUpdate({_id: id}, req.body);
+
+      await income.save();
+      res.send(income);
+    } catch (e) {
+      res.status(400).send({error: e});
+    }
+  });
 };
