@@ -1,7 +1,8 @@
 import {
   GET_INCOMES,
   ADD_INCOME,
-  DELETE_INCOME
+  DELETE_INCOME,
+  UPDATE_INCOME
 } from "../actions/types";
 
 const initialState = {
@@ -19,6 +20,11 @@ export default function foo(state = initialState, action) {
       };
     case DELETE_INCOME:
       return action.payload;
+    case UPDATE_INCOME:
+      return {
+        ...state,
+        incomes: action.payload
+      }
     default:
       return state;
   }

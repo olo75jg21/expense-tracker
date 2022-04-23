@@ -1,14 +1,18 @@
 import React from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import {
   Table,
   Button
 } from 'react-bootstrap';
 
-import { getIncomes, deleteIncome } from "../../actions";
+import {
+  getIncomes,
+  deleteIncome,
+  updateIncome
+} from "../../actions";
 
 const ShowIncomes = () => {
   const incomes = useSelector(state => state.incomeTransaction);
@@ -18,6 +22,7 @@ const ShowIncomes = () => {
   useEffect(() => {
     dispatch(getIncomes());
   }, [incomes]);
+
 
   return (
     <div>
@@ -48,6 +53,7 @@ const ShowIncomes = () => {
                       Delete
                     </Button>
                     <Button
+                      onClick={() => dispatch(updateIncome(income._id, { amount: 5000 }))}
                     >
                       Edit
                     </Button>
