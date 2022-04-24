@@ -1,13 +1,14 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { addIncome } from '../../actions';
+import { updateIncome } from '../../actions';
 
 import {
   Container,
   Row,
-  Col
+  Col,
+  Button
 } from 'react-bootstrap';
 
 // Function to validate addIncome form
@@ -32,13 +33,16 @@ const validate = ({ title, amount, description }) => {
   return errors;
 };
 
-const EditIncomeForm = () => {
+const EditIncomeForm = ({ handleCloseModal, income }) => {
+  const { _id, title, amount, cattegory, description } = income;
+
   const dispatch = useDispatch();
 
   const onSubmit = async (values) => {
-    dispatch(addIncome(values));
+    dispatch(updateIncome(_id, values));
+    handleCloseModal();
 
-    console.log('incomeAdded');
+    console.log('incomeEdited');
   }
 
   return (
@@ -46,11 +50,10 @@ const EditIncomeForm = () => {
       <Form
         onSubmit={onSubmit}
         validate={validate}
+        initialValues={{ title, amount, cattegory, description }}
         render={({ handleSubmit }) => (
 
           <form onSubmit={handleSubmit}>
-
-            <h2>Add Income </h2>
 
             <Row>
               <Col>
@@ -79,6 +82,10 @@ const EditIncomeForm = () => {
                 />
               </Col>
 
+
+            </Row>
+
+            <Row>
               <Col>
                 <Field
                   name="description"
@@ -102,11 +109,14 @@ const EditIncomeForm = () => {
                   </Field>
                 </div>
               </Col>
+            </Row>
 
+            <Row>
               <Col>
-                <button type="submit">Submit</button>
+                <Button type="submit">Submit</Button>
               </Col>
             </Row>
+
           </form>
         )}
       />
