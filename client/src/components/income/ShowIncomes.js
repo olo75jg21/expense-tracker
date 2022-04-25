@@ -59,7 +59,7 @@ const ShowIncomes = () => {
                         </Col>
                         <Col>
                           <Button
-                            variant="danger"
+                            variant="warning"
                             onClick={() => dispatch(deleteIncome(income._id))}
                           >
                             Delete

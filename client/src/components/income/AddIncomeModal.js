@@ -14,23 +14,23 @@ const AddIncomeModal = (props) => {
   const handleShowModal = () => setShowModal(true);
 
   return (
-    <div>
+    <div className='text-center mt-3 mb-3 size=""'>
       <Button
+        variant='success'
         onClick={handleShowModal}
       >
-        Add Income  
+        Add Income
       </Button>
 
       <Modal
         {...props}
-        size="md"
+        size="sm"
         centered
         show={showModal}
         onHide={handleCloseModal}
       >
 
         <Modal.Header closeButton>
-          <Modal.Title>Add Income</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
@@ -38,13 +38,6 @@ const AddIncomeModal = (props) => {
             handleCloseModal={handleCloseModal}
           />
         </Modal.Body>
-
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Close
-          </Button>
-        </Modal.Footer>
-
       </Modal>
     </div>
   )

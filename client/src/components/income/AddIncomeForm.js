@@ -54,7 +54,7 @@ const AddIncomeForm = ({ handleCloseModal }) => {
             autoComplete="off"
             onSubmit={handleSubmit}
           >
-            <Row>
+            <Row className='mt-1 mb-3'>
               <Col>
                 <Field
                   name="title"
@@ -68,7 +68,7 @@ const AddIncomeForm = ({ handleCloseModal }) => {
               </Col>
             </Row>
 
-            <Row>
+            <Row className='mt-1 mb-3'>
               <Col>
                 <Field
                   name="amount"
@@ -82,7 +82,7 @@ const AddIncomeForm = ({ handleCloseModal }) => {
               </Col>
             </Row>
 
-            <Row>
+            <Row className='mt-1 mb-3'>
               <Col>
                 <Field
                   name="description"
@@ -96,19 +96,21 @@ const AddIncomeForm = ({ handleCloseModal }) => {
               </Col>
             </Row>
 
-            <Col>
-              <div>
-                <Field name="cattegory" component="select">
-                  <option value="" disabled selected>Select Cattegory</option>
-                  <option value="wage">Wage</option>
-                  <option value="commission">Commission</option>
-                </Field>
-              </div>
-            </Col>
+            <Row className='mt-1 mb-3'>
+              <Col>
+                <div>
+                  <Field name="cattegory" component="select">
+                    <option value="" disabled>Please Select Cattegory</option>
+                    <option value="wage">Wage</option>
+                    <option value="commission">Commission</option>
+                  </Field>
+                </div>
+              </Col>
+            </Row>
 
-            <Row>
-              <Col className='my-auto'>
-                <Button type="submit">Add Income</Button>
+            <Row className='mt-1 mb-3'>
+              <Col>
+                <Button size="lg" type="submit">Add Income</Button>
               </Col>
             </Row>
           </form>

@@ -16,6 +16,7 @@ const EditIncomeModal = (props) => {
   return (
     <div>
       <Button
+        variant='info'
         onClick={handleShowModal}
       >
         Edit
@@ -23,7 +24,7 @@ const EditIncomeModal = (props) => {
 
       <Modal
         {...props}
-        size="lg"
+        size="sm"
         centered
         show={showModal}
         onHide={handleCloseModal}
@@ -39,16 +40,9 @@ const EditIncomeModal = (props) => {
             income={props.income}
           />
         </Modal.Body>
-
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Close
-          </Button>
-        </Modal.Footer>
-
       </Modal>
     </div>
-  )
+  );
 };
 
 export default EditIncomeModal;
