@@ -110,7 +110,7 @@ const AddIncomeForm = ({ handleCloseModal }) => {
 
             <Row className='mt-1 mb-3'>
               <Col>
-                <Button size="lg" type="submit">Add Income</Button>
+                <Button variant='success' size="lg" type="submit">Add Income</Button>
               </Col>
             </Row>
           </form>

@@ -2,8 +2,6 @@ import React from 'react';
 import { Form, Field } from 'react-final-form'
 import { useDispatch } from 'react-redux';
 
-import { updateIncome } from '../../actions';
-
 import {
   Container,
   Row,
@@ -11,27 +9,8 @@ import {
   Button
 } from 'react-bootstrap';
 
-// Function to validate addIncome form
-const validate = ({ title, amount, description }) => {
-  const errors = {};
-  if (!title) {
-    title = "Title is required";
-  }
-
-  if (!amount) {
-    errors.amount = "Amount is required";
-  } else if (isNaN(amount)) {
-    errors.amount = "Amount has to be a number";
-  }
-
-  if (description) {
-    if (description.length < 5) {
-      errors.description = "Description must be at least 5 letters long";
-    }
-  }
-
-  return errors;
-};
+import { updateIncome } from '../../actions';
+import validate from '../../utils/validateIncomeForm';
 
 const EditIncomeForm = ({ handleCloseModal, income }) => {
   const { _id, title, amount, cattegory, description } = income;
@@ -46,64 +25,62 @@ const EditIncomeForm = ({ handleCloseModal, income }) => {
   }
 
   return (
-    <Container>
+    <Container className='text-center'>
       <Form
         onSubmit={onSubmit}
-        validate={validate}
+        // validate={validate}
         initialValues={{ title, amount, cattegory, description }}
         render={({ handleSubmit }) => (
 
           <form onSubmit={handleSubmit}>
 
-            <Row>
+            <Row className='mt-1 mb-3'>
               <Col>
                 <Field
                   name="title"
                   render={({ input, meta }) => (
                     <div>
-                      <label>Title</label>
-                      <input {...input} />
+                      <input {...input} placeholder="Title"/>
                       {meta.touched && meta.error && <span>{meta.error}</span>}
                     </div>
                   )}
                 />
               </Col>
+            </Row>
 
+            <Row className='mt-1 mb-3'>
               <Col>
                 <Field
                   name="amount"
                   render={({ input, meta }) => (
                     <div>
-                      <label>Amount</label>
-                      <input {...input} />
+                      <input {...input} placeholder="Amount"/>
                       {meta.touched && meta.error && <span>{meta.error}</span>}
                     </div>
                   )}
                 />
               </Col>
-
-
             </Row>
 
-            <Row>
+            <Row className='mt-1 mb-3'>
               <Col>
                 <Field
                   name="description"
                   render={({ input, meta }) => (
                     <div>
-                      <label>Description</label>
-                      <input {...input} />
+                      <input {...input} placeholder="Description"/>
                       {meta.touched && meta.error && <span>{meta.error}</span>}
                     </div>
                   )}
                 />
               </Col>
+            </Row>
 
+            <Row className='mt-1 mb-3'>
               <Col>
                 <div>
-                  <label>Cattegory</label>
                   <Field name="cattegory" component="select">
-                    <option />
+                    <option value="" disabled>Please Select Cattegory</option>
                     <option value="wage">Wage</option>
                     <option value="commission">Commission</option>
                   </Field>
@@ -111,9 +88,9 @@ const EditIncomeForm = ({ handleCloseModal, income }) => {
               </Col>
             </Row>
 
-            <Row>
+            <Row className='mt-1 mb-3'>
               <Col>
-                <Button type="submit">Submit</Button>
+                <Button variant="info" type="submit">Edit Income</Button>
               </Col>
             </Row>
 
