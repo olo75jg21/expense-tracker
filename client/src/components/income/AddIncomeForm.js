@@ -7,7 +7,8 @@ import { addIncome } from '../../actions';
 import {
   Container,
   Row,
-  Col
+  Col,
+  Button
 } from 'react-bootstrap';
 
 // Function to validate addIncome form
@@ -32,79 +33,82 @@ const validate = ({ title, amount, description }) => {
   return errors;
 };
 
-const AddIncomeForm = () => {
+const AddIncomeForm = ({ handleCloseModal }) => {
   const dispatch = useDispatch();
 
   const onSubmit = async (values) => {
     dispatch(addIncome(values));
+    handleCloseModal();
 
     console.log('incomeAdded');
   }
 
   return (
-    <Container>
+    <Container className="text-center">
       <Form
         onSubmit={onSubmit}
-        validate={validate}
+        // validate={validate}
         render={({ handleSubmit }) => (
 
-          <form onSubmit={handleSubmit}>
-
-            <h2>Add Income </h2>
-
+          <form
+            autoComplete="off"
+            onSubmit={handleSubmit}
+          >
             <Row>
               <Col>
                 <Field
                   name="title"
                   render={({ input, meta }) => (
                     <div>
-                      <label>Title</label>
-                      <input {...input} />
+                      <input {...input} placeholder="Title" />
                       {meta.touched && meta.error && <span>{meta.error}</span>}
                     </div>
                   )}
                 />
               </Col>
+            </Row>
 
+            <Row>
               <Col>
                 <Field
                   name="amount"
                   render={({ input, meta }) => (
                     <div>
-                      <label>Amount</label>
-                      <input {...input} />
+                      <input {...input} placeholder="Amount" />
                       {meta.touched && meta.error && <span>{meta.error}</span>}
                     </div>
                   )}
                 />
               </Col>
+            </Row>
 
+            <Row>
               <Col>
                 <Field
                   name="description"
                   render={({ input, meta }) => (
                     <div>
-                      <label>Description</label>
-                      <input {...input} />
+                      <input {...input} placeholder="Description" />
                       {meta.touched && meta.error && <span>{meta.error}</span>}
                     </div>
                   )}
                 />
               </Col>
+            </Row>
 
-              <Col>
-                <div>
-                  <label>Cattegory</label>
-                  <Field name="cattegory" component="select">
-                    <option />
-                    <option value="wage">Wage</option>
-                    <option value="commission">Commission</option>
-                  </Field>
-                </div>
-              </Col>
+            <Col>
+              <div>
+                <Field name="cattegory" component="select">
+                  <option value="" disabled selected>Select Cattegory</option>
+                  <option value="wage">Wage</option>
+                  <option value="commission">Commission</option>
+                </Field>
+              </div>
+            </Col>
 
-              <Col>
-                <button type="submit">Submit</button>
+            <Row>
+              <Col className='my-auto'>
+                <Button type="submit">Add Income</Button>
               </Col>
             </Row>
           </form>

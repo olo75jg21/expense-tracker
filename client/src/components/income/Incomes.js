@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { getIncomes } from "../../actions";
 
 import AddIncomeForm from './AddIncomeForm';
+import AddIncomeModal from './AddIncomeModal';
 import ShowIncomes from './ShowIncomes';
 
 const Incomes = () => {
@@ -27,7 +28,7 @@ const Incomes = () => {
 
   return (
     <div>
-      <AddIncomeForm />
+      <AddIncomeModal />
       <ShowIncomes />
     </div>
   );
