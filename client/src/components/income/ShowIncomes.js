@@ -29,14 +29,15 @@ const ShowIncomes = () => {
 
   return (
     <div>
-      <Table stripped="true" bordered hover responsive>
+      <Table size="sm" stripped="true" bordered hover responsive>
+
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Amount</th>
-            <th>Cattegory</th>
-            <th>Description</th>
-            <th></th>
+            <th width="200">Title</th>
+            <th width="50">Amount</th>
+            <th width="100">Cattegory</th>
+            <th width="400">Description</th>
+            <th width="150"></th>
           </tr>
         </thead>
         {

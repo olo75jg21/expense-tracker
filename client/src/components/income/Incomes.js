@@ -1,10 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
 
-import { getIncomes } from "../../actions";
-
-import AddIncomeForm from './AddIncomeForm';
 import AddIncomeModal from './AddIncomeModal';
 import ShowIncomes from './ShowIncomes';
 

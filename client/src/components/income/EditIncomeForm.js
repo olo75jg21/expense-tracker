@@ -28,7 +28,7 @@ const EditIncomeForm = ({ handleCloseModal, income }) => {
     <Container className='text-center'>
       <Form
         onSubmit={onSubmit}
-        // validate={validate}
+        validate={validate}
         initialValues={{ title, amount, cattegory, description }}
         render={({ handleSubmit }) => (
 
@@ -40,8 +40,9 @@ const EditIncomeForm = ({ handleCloseModal, income }) => {
                   name="title"
                   render={({ input, meta }) => (
                     <div>
-                      <input {...input} placeholder="Title"/>
-                      {meta.touched && meta.error && <span>{meta.error}</span>}
+                      <input {...input} placeholder="Title" />
+                      <br />
+                      {meta.touched && meta.error && <small >{meta.error}</small>}
                     </div>
                   )}
                 />
@@ -54,8 +55,9 @@ const EditIncomeForm = ({ handleCloseModal, income }) => {
                   name="amount"
                   render={({ input, meta }) => (
                     <div>
-                      <input {...input} placeholder="Amount"/>
-                      {meta.touched && meta.error && <span>{meta.error}</span>}
+                      <input {...input} placeholder="Amount" />
+                      <br />
+                      {meta.touched && meta.error && <small>{meta.error}</small>}
                     </div>
                   )}
                 />
@@ -68,8 +70,9 @@ const EditIncomeForm = ({ handleCloseModal, income }) => {
                   name="description"
                   render={({ input, meta }) => (
                     <div>
-                      <input {...input} placeholder="Description"/>
-                      {meta.touched && meta.error && <span>{meta.error}</span>}
+                      <input {...input} placeholder="Description" />
+                      <br />
+                      {meta.touched && meta.error && <small>{meta.error}</small>}
                     </div>
                   )}
                 />
@@ -78,13 +81,11 @@ const EditIncomeForm = ({ handleCloseModal, income }) => {
 
             <Row className='mt-1 mb-3'>
               <Col>
-                <div>
-                  <Field name="cattegory" component="select">
-                    <option value="" disabled>Please Select Cattegory</option>
-                    <option value="wage">Wage</option>
-                    <option value="commission">Commission</option>
-                  </Field>
-                </div>
+                <Field name="cattegory" component="select">
+                  <option value="" disabled>Please Select Cattegory</option>
+                  <option value="wage">Wage</option>
+                  <option value="commission">Commission</option>
+                </Field>
               </Col>
             </Row>
 
@@ -99,6 +100,6 @@ const EditIncomeForm = ({ handleCloseModal, income }) => {
       />
     </Container>
   );
-}
+};
 
 export default EditIncomeForm;

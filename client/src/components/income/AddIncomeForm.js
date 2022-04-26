@@ -2,8 +2,6 @@ import React from 'react';
 import { Form, Field } from 'react-final-form'
 import { useSelector, useDispatch } from 'react-redux';
 
-import { addIncome } from '../../actions';
-
 import {
   Container,
   Row,
@@ -11,27 +9,8 @@ import {
   Button
 } from 'react-bootstrap';
 
-// Function to validate addIncome form
-const validate = ({ title, amount, description }) => {
-  const errors = {};
-  if (!title) {
-    title = "Title is required";
-  }
-
-  if (!amount) {
-    errors.amount = "Amount is required";
-  } else if (isNaN(amount)) {
-    errors.amount = "Amount has to be a number";
-  }
-
-  if (description) {
-    if (description.length < 5) {
-      errors.description = "Description must be at least 5 letters long";
-    }
-  }
-
-  return errors;
-};
+import { addIncome } from '../../actions';
+import validate from '../../utils/validateIncomeForm';
 
 const AddIncomeForm = ({ handleCloseModal }) => {
   const dispatch = useDispatch();
@@ -47,7 +26,8 @@ const AddIncomeForm = ({ handleCloseModal }) => {
     <Container className="text-center">
       <Form
         onSubmit={onSubmit}
-        // validate={validate}
+        validate={validate}
+        initialValues={{title: "", amount: null, description: ""}}
         render={({ handleSubmit }) => (
 
           <form
@@ -61,7 +41,8 @@ const AddIncomeForm = ({ handleCloseModal }) => {
                   render={({ input, meta }) => (
                     <div>
                       <input {...input} placeholder="Title" />
-                      {meta.touched && meta.error && <span>{meta.error}</span>}
+                      <br />
+                      {meta.touched && meta.error && <small>{meta.error}</small>}
                     </div>
                   )}
                 />
@@ -75,7 +56,8 @@ const AddIncomeForm = ({ handleCloseModal }) => {
                   render={({ input, meta }) => (
                     <div>
                       <input {...input} placeholder="Amount" />
-                      {meta.touched && meta.error && <span>{meta.error}</span>}
+                      <br />
+                      {meta.touched && meta.error && <small>{meta.error}</small>}
                     </div>
                   )}
                 />
@@ -89,7 +71,8 @@ const AddIncomeForm = ({ handleCloseModal }) => {
                   render={({ input, meta }) => (
                     <div>
                       <input {...input} placeholder="Description" />
-                      {meta.touched && meta.error && <span>{meta.error}</span>}
+                      <br />
+                      {meta.touched && meta.error && <small>{meta.error}</small>}
                     </div>
                   )}
                 />
