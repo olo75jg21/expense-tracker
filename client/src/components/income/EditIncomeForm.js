@@ -12,7 +12,7 @@ import {
 import { updateIncome } from '../../actions';
 import validate from '../../utils/validateIncomeForm';
 
-const EditIncomeForm = ({ handleCloseModal, income }) => {
+const EditIncomeForm = ({ income, handleCloseModal }) => {
   const { _id, title, amount, cattegory, description } = income;
 
   const dispatch = useDispatch();

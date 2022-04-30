@@ -14,13 +14,13 @@ const renderHeaderContent = (authStatus) => {
     return (
       <Nav className='ms-auto'>
         <LinkContainer to="/dashboard">
-          <Nav.Link>Dashboard</Nav.Link>
+          <Nav.Link className='text-light'>Dashboard</Nav.Link>
         </LinkContainer>
         <LinkContainer to="/incomes">
-          <Nav.Link>Incomes</Nav.Link>
+          <Nav.Link className='text-light'>Incomes</Nav.Link>
         </LinkContainer>
         <LinkContainer to="/expenses">
-          <Nav.Link>Expenses</Nav.Link>
+          <Nav.Link className='text-light'>Expenses</Nav.Link>
         </LinkContainer>
         <Button variant="secondary" href="/api/logout">Logout</Button>
       </Nav>
@@ -39,10 +39,10 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar bg="light" expand="lg" >
+      <Navbar bg="dark" expand="lg" className='text-light'>
         <Container>
           <LinkContainer to={auth ? '/dashboard' : '/'}>
-            <Navbar.Brand>Expense Tracker</Navbar.Brand>
+            <Navbar.Brand className='text-light'>Expense Tracker</Navbar.Brand>
           </LinkContainer>
           <Navbar.Collapse id="basic-navbar-nav">
             {renderHeaderContent(auth)}

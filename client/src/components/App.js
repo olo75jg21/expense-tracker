@@ -9,6 +9,10 @@ import Incomes from './income/Incomes';
 import Settings from './Settings';
 import Welcome from './Welcome';
 
+import {
+  Container
+} from 'react-bootstrap';
+
 import { fetchUser } from '../actions/index';
 
 const App = () => {
@@ -21,7 +25,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div className="container">
+      <Container>
         <Header />
         <Routes>
           <Route path="/" element={<Welcome />} />
@@ -31,7 +35,7 @@ const App = () => {
           <Route exact path="/settings" element={<Settings />} />
           <Route path="*" element={<h1>There is nothing here!</h1>} />
         </Routes>
-      </div>
+      </Container>
     </BrowserRouter>
   );
 }

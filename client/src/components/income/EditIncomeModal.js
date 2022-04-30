@@ -23,16 +23,13 @@ const EditIncomeModal = (props) => {
       </Button>
 
       <Modal
-        {...props}
         size="sm"
-        centered
         show={showModal}
+        backdrop="static"
         onHide={handleCloseModal}
       >
 
-        <Modal.Header closeButton>
-          <Modal.Title>Edit Income</Modal.Title>
-        </Modal.Header>
+        <Modal.Header closeButton />
 
         <Modal.Body>
           <EditIncomeForm
