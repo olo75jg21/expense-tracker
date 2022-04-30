@@ -29,15 +29,15 @@ const ShowIncomes = () => {
 
   return (
     <div>
-      <Table size="sm" stripped="true" bordered hover responsive>
+      <Table size="sm" hover responsive >
 
         <thead>
           <tr>
-            <th width="200">Title</th>
-            <th width="50">Amount</th>
-            <th width="100">Cattegory</th>
-            <th width="400">Description</th>
-            <th width="150"></th>
+            <th style={{ width: '12%' }}>Title</th>
+            <th style={{ width: '10%' }}>Amount</th>
+            <th style={{ width: '8%' }}>Cattegory</th>
+            <th style={{ width: '50%' }}>Description</th>
+            <th style={{ width: '20%', wordBreak: 'normal' }}></th>
           </tr>
         </thead>
         {
@@ -45,13 +45,13 @@ const ShowIncomes = () => {
             return (
               <tbody key={income._id}>
                 <tr>
-                  <td>{income.title}</td>
-                  <td>{income.amount}</td>
+                  <td style={{ wordBreak: 'break-all' }}>{income.title}</td>
+                  <td style={{ wordBreak: 'break-all' }}>{income.amount}</td>
                   <td>{income.cattegory}</td>
-                  <td>{income.description}</td>
+                  <td style={{ wordBreak: 'break-all' }}>{income.description}</td>
                   <td>
                     <Container>
-                      <Row>
+                      <Row xs={1} sm={1} md={1} lg={2} className="text-center align-middle">
                         <Col>
                           <EditIncomeModal
                             dispatch={dispatch}
@@ -60,7 +60,9 @@ const ShowIncomes = () => {
                         </Col>
                         <Col>
                           <Button
-                            variant="warning"
+                            className="w-100"
+                            variant="secondary"
+                            size="sm"
                             onClick={() => dispatch(deleteIncome(income._id))}
                           >
                             Delete

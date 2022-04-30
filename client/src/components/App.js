@@ -25,7 +25,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Container>
+      <div className="container-fluid bg-lightd vh-100'">
         <Header />
         <Routes>
           <Route path="/" element={<Welcome />} />
@@ -35,7 +35,7 @@ const App = () => {
           <Route exact path="/settings" element={<Settings />} />
           <Route path="*" element={<h1>There is nothing here!</h1>} />
         </Routes>
-      </Container>
+      </div>
     </BrowserRouter>
   );
 }

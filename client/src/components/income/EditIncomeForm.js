@@ -83,15 +83,19 @@ const EditIncomeForm = ({ income, handleCloseModal }) => {
               <Col>
                 <Field name="cattegory" component="select">
                   <option value="" disabled>Please Select Cattegory</option>
-                  <option value="wage">Wage</option>
+                  <option value="salary">Salary</option>
                   <option value="commission">Commission</option>
+                  <option value="interest">Interest</option>
+                  <option value="investments">Investments</option>
+                  <option value="gifts">Gifts</option>
+                  <option value="govermentPayments">Goverment Payments</option>
                 </Field>
               </Col>
             </Row>
 
             <Row className='mt-1 mb-3'>
               <Col>
-                <Button variant="info" type="submit">Edit Income</Button>
+                <Button variant="secondary" type="submit">Edit Income</Button>
               </Col>
             </Row>
 

@@ -16,7 +16,9 @@ const EditIncomeModal = (props) => {
   return (
     <div>
       <Button
-        variant='info'
+        className="w-100 mb-1"
+        variant='secondary'
+        size='sm'
         onClick={handleShowModal}
       >
         Edit

@@ -14,9 +14,10 @@ const AddIncomeModal = (props) => {
   const handleShowModal = () => setShowModal(true);
 
   return (
-    <div className='text-center mt-3 mb-3 size=""'>
+    <div className='text-center mt-3 mb-3'>
       <Button
-        variant='success'
+        className='w-25'
+        variant='secondary'
         onClick={handleShowModal}
       >
         Add Income

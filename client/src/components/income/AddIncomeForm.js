@@ -84,8 +84,12 @@ const AddIncomeForm = ({ handleCloseModal }) => {
                 <div>
                   <Field name="cattegory" component="select">
                     <option value="" disabled>Please Select Cattegory</option>
-                    <option value="wage">Wage</option>
+                    <option value="salary">Salary</option>
                     <option value="commission">Commission</option>
+                    <option value="interest">Interest</option>
+                    <option value="investments">Investments</option>
+                    <option value="gifts">Gifts</option>
+                    <option value="govermentPayments">Goverment Payments</option>
                   </Field>
                 </div>
               </Col>
@@ -93,7 +97,7 @@ const AddIncomeForm = ({ handleCloseModal }) => {
 
             <Row className='mt-1 mb-3'>
               <Col>
-                <Button variant='success' size="lg" type="submit">Add Income</Button>
+                <Button variant='secondary' size="lg" type="submit">Add Income</Button>
               </Col>
             </Row>
           </form>

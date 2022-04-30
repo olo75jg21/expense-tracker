@@ -68,7 +68,7 @@ const Dashboard = () => {
   return (
     <div>
       <Container>
-        <Row className='justify-content-md-center'>
+        <Row xs={1} sm={1} md={1} lg={3} className='justify-content-md-center'>
           <Col>
             <Summary
               title="Income"

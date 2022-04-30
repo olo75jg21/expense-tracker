@@ -22,14 +22,14 @@ const renderHeaderContent = (authStatus) => {
         <LinkContainer to="/expenses">
           <Nav.Link className='text-light'>Expenses</Nav.Link>
         </LinkContainer>
-        <Button variant="secondary" href="/api/logout">Logout</Button>
+        <Nav.Link className='text-light' variant="secondary" href="/api/logout">Logout</Nav.Link>
       </Nav>
     );
   }
 
   return (
     <Nav className='ms-auto'>
-      <Button variant="secondary" href="/auth/google">Login With Google</Button>
+      <Nav.Link className='text-light' variant="secondary" href="/auth/google">Login With Google</Nav.Link>
     </Nav>
   );
 };
