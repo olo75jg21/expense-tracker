@@ -10,7 +10,7 @@ import {
 } from 'react-bootstrap';
 
 import { updateIncome } from '../../actions';
-import validate from '../../utils/validateIncomeForm';
+import validate from '../../utils/validateForm';
 
 const EditIncomeForm = ({ income, handleCloseModal }) => {
   const { _id, title, amount, cattegory, description } = income;

@@ -11,7 +11,7 @@ import {
 } from 'react-bootstrap';
 
 import { addExpense } from '../../actions';
-import validate from '../../utils/validateIncomeForm';
+import validate from '../../utils/validateForm';
 
 const AddExpenseForm = ({ handleCloseModal }) => {
   const dispatch = useDispatch();
