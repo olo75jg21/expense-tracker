@@ -25,7 +25,7 @@ const ShowExpenses = () => {
 
   useEffect(() => {
     dispatch(getExpenses());
-  }, [expenses]);
+  }, [dispatch, expenses]);
 
   return (
     <div>

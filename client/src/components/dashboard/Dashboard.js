@@ -3,47 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getIncomes, getExpenses } from '../../actions';
 
 import {
-  Button,
-  Container,
   Row,
   Col,
-  Card
 } from 'react-bootstrap';
 
-import { LinkContainer } from 'react-router-bootstrap';
-
-const renderSummaryTitle = (amount, title) => {
-  return (
-    <div>
-      {amount === 0 && title !== 'Balance' ? <p>Add your first {title}</p> : <p>{`Total ${title}`}</p>}
-    </div>
-  );
-}
-
-const renderCardLinkButton = (title) => {
-  return (
-    <LinkContainer to={`/${title.toLowerCase()}s`}>
-      <Button variant="secondary">+</Button>
-    </LinkContainer>
-  );
-};
-
-const Summary = ({ title, amount }) => {
-  return (
-    <div>
-      <Card style={{ height: '7rem', marginTop: '0.5rem'}}>
-        <Card.Body>
-          <Card.Title>
-            {renderSummaryTitle(amount, title)}
-          </Card.Title>
-          <Card.Text>
-            {amount || title === 'Balance' ? amount : renderCardLinkButton(title)}
-          </Card.Text>
-        </Card.Body>
-      </Card>
-    </div>
-  );
-}
+import Summary from './Summary';
+import SummaryChart from './SummaryChart';
+import BalanceChart from './BalanceChart';
 
 const Dashboard = () => {
   const auth = useSelector(state => state.auth);
@@ -68,7 +34,7 @@ const Dashboard = () => {
   return (
     <div>
       <div className='container-fluid'>
-        <Row xs={1} sm={1} md={1} lg={3} className='justify-content-md-center'>
+        <Row xs={1} sm={1} md={1} lg={3} className='justify-content-md-center mb-4'>
           <Col>
             <Summary
               title="Income"
@@ -86,6 +52,17 @@ const Dashboard = () => {
               title="Balance"
               amount={calculateBalance(expense, income)}
             />
+          </Col>
+        </Row>
+        <Row xs={1} sm={1} md={1} lg={3}>
+          <Col>
+            <SummaryChart chartData={income} />
+          </Col>
+          <Col>
+            <SummaryChart chartData={expense} />
+          </Col>
+          <Col>
+            <BalanceChart income={calculate(income)} expense={calculate(expense)} />
           </Col>
         </Row>
       </div>
