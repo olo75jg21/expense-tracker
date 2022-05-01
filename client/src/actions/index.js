@@ -6,7 +6,8 @@ import {
   ADD_INCOME,
   DELETE_INCOME,
   UPDATE_INCOME,
-  GET_EXPENSES
+  GET_EXPENSES,
+  ADD_EXPENSE
 } from './types';
 
 export const fetchUser = () => async (dispatch) => {
@@ -43,4 +44,10 @@ export const getExpenses = () => async (dispatch) => {
   const res = await axios.get('/api/getAllExpense');
 
   dispatch({ type: GET_EXPENSES, payload: res.data });
+};
+
+export const addExpense = () => async (dispatch) => {
+  const res = await axios.get('/api/createExpense');
+
+  dispatch({ type: ADD_EXPENSE, payload: res.data });
 };

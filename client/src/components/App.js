@@ -3,15 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 
 import Dashboard from './dashboard/Dashboard';
-import Expenses from './Expenses';
+import Expenses from './expense/Expenses';
 import Header from './Header';
 import Incomes from './income/Incomes';
 import Settings from './Settings';
 import Welcome from './Welcome';
-
-import {
-  Container
-} from 'react-bootstrap';
 
 import { fetchUser } from '../actions/index';
 

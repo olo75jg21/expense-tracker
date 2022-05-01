@@ -67,7 +67,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <Container>
+      <div className='container-fluid'>
         <Row xs={1} sm={1} md={1} lg={3} className='justify-content-md-center'>
           <Col>
             <Summary
@@ -88,7 +88,7 @@ const Dashboard = () => {
             />
           </Col>
         </Row>
-      </Container>
+      </div>
     </div>
   );
 };

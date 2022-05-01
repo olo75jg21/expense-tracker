@@ -26,7 +26,6 @@ const AddIncomeModal = (props) => {
       <Modal
         {...props}
         size="sm"
-        centered
         show={showModal}
         backdrop="static"
         onHide={handleCloseModal}
