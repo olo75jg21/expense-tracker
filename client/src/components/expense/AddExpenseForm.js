@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react"
 
 import { Form, Field } from 'react-final-form'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import {
   Container,
@@ -10,17 +10,17 @@ import {
   Button
 } from 'react-bootstrap';
 
-import { addIncome } from '../../actions';
+import { addExpense } from '../../actions';
 import validate from '../../utils/validateIncomeForm';
 
-const AddIncomeForm = ({ handleCloseModal }) => {
+const AddExpenseForm = ({ handleCloseModal }) => {
   const dispatch = useDispatch();
 
   const onSubmit = async (values) => {
-    dispatch(addIncome(values));
+    dispatch(addExpense(values));
     handleCloseModal();
 
-    console.log('incomeAdded');
+    console.log('expenseAdded');
   }
 
   return (
@@ -28,7 +28,7 @@ const AddIncomeForm = ({ handleCloseModal }) => {
       <Form
         onSubmit={onSubmit}
         validate={validate}
-        initialValues={{title: "", amount: null, description: ""}}
+        initialValues={{ title: "", amount: null, description: "" }}
         render={({ handleSubmit }) => (
 
           <form
@@ -98,7 +98,7 @@ const AddIncomeForm = ({ handleCloseModal }) => {
 
             <Row className='mt-1 mb-3'>
               <Col>
-                <Button variant='secondary' size="lg" type="submit">Add Income</Button>
+                <Button variant='secondary' size="lg" type="submit">Add Expense</Button>
               </Col>
             </Row>
           </form>
@@ -106,6 +106,6 @@ const AddIncomeForm = ({ handleCloseModal }) => {
       />
     </Container>
   );
-}
+};
 
-export default AddIncomeForm;
+export default AddExpenseForm;

@@ -5,19 +5,24 @@ const ExpenseTransaction = mongoose.model('ExpenseTransaction');
 
 module.exports = (app) => {
   app.post('/api/createExpense', requireLogin, async (req, res) => {
-    const { date, amount, title, description, cattegory } = req.body;
+    try {
+      const { date, amount, title, description, cattegory } = req.body;
 
-    const expenseTransaction = new ExpenseTransaction({
-      _user: req.user.id,
-      date,
-      amount,
-      title,
-      description,
-      cattegory
-    });
+      const expenseTransaction = new ExpenseTransaction({
+        _user: req.user.id,
+        date,
+        amount,
+        title,
+        description,
+        cattegory
+      });
 
-    await expenseTransaction.save();
-    res.send(expenseTransaction);
+      await expenseTransaction.save();
+      res.send(expenseTransaction);
+
+    } catch (e) {
+      res.status(400).send({error: e});
+    }
   });
 
   // get all incomes

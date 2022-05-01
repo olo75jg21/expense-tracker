@@ -46,8 +46,8 @@ export const getExpenses = () => async (dispatch) => {
   dispatch({ type: GET_EXPENSES, payload: res.data });
 };
 
-export const addExpense = () => async (dispatch) => {
-  const res = await axios.get('/api/createExpense');
+export const addExpense = (expense) => async (dispatch) => {
+  const res = await axios.post('/api/createExpense', expense);
 
   dispatch({ type: ADD_EXPENSE, payload: res.data });
 };

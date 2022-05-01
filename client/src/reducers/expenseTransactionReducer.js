@@ -14,7 +14,7 @@ export default function foo(state = initialState, action) {
     case ADD_EXPENSE:
       return {
         ...state,
-        expenses: [...state.epxenses, action.payload]
+        expenses: [...state.expenses, action.payload]
       };
     default:
       return state;

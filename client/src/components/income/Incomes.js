@@ -1,13 +1,11 @@
 import React from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import AddIncomeModal from './AddIncomeModal';
 import ShowIncomes from './ShowIncomes';
 
 const Incomes = () => {
   const auth = useSelector(state => state.auth);
-
-  const dispatch = useDispatch();
 
   if (!auth) {
     return (
