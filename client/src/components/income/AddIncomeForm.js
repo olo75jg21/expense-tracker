@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Form, Field } from 'react-final-form'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import {
   Container,

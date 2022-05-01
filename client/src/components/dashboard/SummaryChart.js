@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
+import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import randomRgba from "random-rgba";
 
@@ -77,7 +77,7 @@ const SummaryChart = ({ chartData }) => {
   };
 
   return (
-    <div style={{height: '50vh', width: '30vw'}}>
+    <div style={{ height: '50vh', width: '30vw' }}>
       <Doughnut data={data} options={options} />
     </div>
   );
