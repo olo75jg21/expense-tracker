@@ -12,7 +12,8 @@ import {
 } from 'react-bootstrap';
 
 import {
-  getExpenses
+  getExpenses,
+  deleteExpense
 } from "../../actions";
 
 const ShowExpenses = () => {
@@ -60,7 +61,7 @@ const ShowExpenses = () => {
                             className="w-100"
                             variant="secondary"
                             size="sm"
-                          // onClick={() => dispatch(deleteIncome(income._id))}
+                            onClick={() => dispatch(deleteExpense(expense._id))}
                           >
                             Delete
                           </Button>

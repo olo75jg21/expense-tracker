@@ -7,3 +7,5 @@ export const UPDATE_INCOME = 'update_income';
 
 export const GET_EXPENSES = 'get_expense';
 export const ADD_EXPENSE = 'add_expense';
+export const DELETE_EXPENSE = 'delete_expense';
+export const UPDATE_EXPENSE = 'update_expense';

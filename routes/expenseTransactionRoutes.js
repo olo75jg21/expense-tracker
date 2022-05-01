@@ -25,7 +25,6 @@ module.exports = (app) => {
     }
   });
 
-  // get all incomes
   app.get('/api/getAllExpense', requireLogin, async (req, res) => {
     try {
       const expenses = await ExpenseTransaction.find({ _user: req.user.id });
@@ -35,7 +34,6 @@ module.exports = (app) => {
     }
   });
 
-  // get single income
   app.get('/api/getExpense/:id', requireLogin, async (req, res) => {
     try {
       const { id } = req.params;
@@ -46,7 +44,6 @@ module.exports = (app) => {
     }
   });
 
-  // delete single income
   app.delete('/api/deleteExpense/:id', requireLogin, async (req, res) => {
     try {
       const { id } = req.params;
