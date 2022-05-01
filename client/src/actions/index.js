@@ -59,3 +59,9 @@ export const deleteExpense = (id) => async (dispatch) => {
 
   dispatch({type: DELETE_EXPENSE, payload: res.data});
 };
+
+export const updateExpense = (id, newExpense) => async (dispatch) => {
+  const res = await axios.put(`/api/updateExpense/${id}`, newExpense);
+
+  dispatch({type: UPDATE_EXPENSE, payload: res.data});
+};

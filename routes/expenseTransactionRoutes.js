@@ -21,7 +21,7 @@ module.exports = (app) => {
       res.send(expenseTransaction);
 
     } catch (e) {
-      res.status(400).send({error: e});
+      res.status(400).send({ error: e });
     }
   });
 
@@ -54,4 +54,15 @@ module.exports = (app) => {
     }
   });
 
+  app.put('/api/updateExpense/:id', requireLogin, async (req, res) => {
+    try {
+      const { id } = req.params;
+      const expense = await ExpenseTransaction.findOneAndUpdate({ _id: id }, req.body);
+
+      await expense.save();
+      res.send(expense);
+    } catch (e) {
+      res.status(400).send({ error: e });
+    }
+  });
 };

@@ -16,6 +16,8 @@ import {
   deleteExpense
 } from "../../actions";
 
+import EditExpenseModal from './EditExpenseModal';
+
 const ShowExpenses = () => {
   const expenses = useSelector(state => state.expenseTransaction);
 
@@ -51,10 +53,10 @@ const ShowExpenses = () => {
                     <Container>
                       <Row xs={1} sm={1} md={1} lg={2} className="text-center align-middle">
                         <Col>
-                          {/* <EditIncomeModal
+                          <EditExpenseModal
                             dispatch={dispatch}
-                            income={income}
-                          /> */}
+                            expense={expense}
+                          />
                         </Col>
                         <Col>
                           <Button

@@ -1,5 +1,4 @@
-import React from "react"
-
+import React from 'react';
 import { Form, Field } from 'react-final-form'
 import { useDispatch } from 'react-redux';
 
@@ -10,31 +9,31 @@ import {
   Button
 } from 'react-bootstrap';
 
-import { addExpense } from '../../actions';
+import { updateExpense } from '../../actions';
 import validate from '../../utils/validateIncomeForm';
 
-const AddExpenseForm = ({ handleCloseModal }) => {
+const EditExpenseForm = ({ expense, handleCloseModal }) => {
+  const { _id, title, amount, cattegory, description } = expense;
+
   const dispatch = useDispatch();
 
   const onSubmit = async (values) => {
-    dispatch(addExpense(values));
+    dispatch(updateExpense(_id, values));
     handleCloseModal();
 
-    console.log('expenseAdded');
+    console.log('expenseEdited');
   }
 
   return (
-    <Container className="text-center">
+    <Container className='text-center'>
       <Form
         onSubmit={onSubmit}
         validate={validate}
-        initialValues={{ title: "", amount: null, description: "" }}
+        initialValues={{ title, amount, cattegory, description }}
         render={({ handleSubmit }) => (
 
-          <form
-            autoComplete="off"
-            onSubmit={handleSubmit}
-          >
+          <form onSubmit={handleSubmit}>
+
             <Row className='mt-1 mb-3'>
               <Col>
                 <Field
@@ -43,7 +42,7 @@ const AddExpenseForm = ({ handleCloseModal }) => {
                     <div>
                       <input {...input} placeholder="Title" />
                       <br />
-                      {meta.touched && meta.error && <small>{meta.error}</small>}
+                      {meta.touched && meta.error && <small >{meta.error}</small>}
                     </div>
                   )}
                 />
@@ -82,27 +81,26 @@ const AddExpenseForm = ({ handleCloseModal }) => {
 
             <Row className='mt-1 mb-3'>
               <Col>
-                <div>
-                  <Field name="cattegory" component="select">
-                    <option value="" disabled>Please Select Cattegory</option>
-                    <option value="rent">Rent</option>
-                    <option value="insurance">Insurance</option>
-                    <option value="sanitation">Sanitation</option>
-                    <option value="groceries">Groceries</option>
-                    <option value="carPayment">Car Payment</option>
-                    <option value="publicTransport">Public Transport</option>
-                    <option value="internet">Internet</option>
-                    <option value="cellPhone">Cell Phone</option>
-                  </Field>
-                </div>
+                <Field name="cattegory" component="select">
+                  <option value="" disabled>Please Select Cattegory</option>
+                  <option value="rent">Rent</option>
+                  <option value="insurance">Insurance</option>
+                  <option value="sanitation">Sanitation</option>
+                  <option value="groceries">Groceries</option>
+                  <option value="carPayment">Car Payment</option>
+                  <option value="publicTransport">Public Transport</option>
+                  <option value="internet">Internet</option>
+                  <option value="cellPhone">Cell Phone</option>
+                </Field>
               </Col>
             </Row>
 
             <Row className='mt-1 mb-3'>
               <Col>
-                <Button variant='secondary' size="lg" type="submit">Add Expense</Button>
+                <Button variant="secondary" type="submit">Edit Expense</Button>
               </Col>
             </Row>
+
           </form>
         )}
       />
@@ -110,4 +108,4 @@ const AddExpenseForm = ({ handleCloseModal }) => {
   );
 };
 
-export default AddExpenseForm;
+export default EditExpenseForm;
