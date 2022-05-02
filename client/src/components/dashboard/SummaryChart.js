@@ -12,17 +12,17 @@ const SummaryChart = ({ chartData }) => {
     colors: []
   });
 
-  let result = Object.values(Array.from(chartData).reduce((acc, curr) => {
-    let item = acc[curr.cattegory];
+  let result = Array.from(chartData).reduce((acc, curr) => {
+    let item = acc.find(item => item.category === curr.category);
 
     if (item) {
       item.amount += curr.amount;
     } else {
-      acc[curr.cattegory] = curr;
+      acc.push(curr);
     }
 
     return acc;
-  }, {}));
+  }, []);
 
   useEffect(() => {
     const labels = [];
@@ -56,23 +56,6 @@ const SummaryChart = ({ chartData }) => {
   }
 
   const options = {
-    plugins: {
-      title: {
-        display: true,
-        text: 'Pie Chart',
-        color: 'blue',
-        font: {
-          size: 34
-        },
-        padding: {
-          top: 30,
-          bottom: 30
-        },
-        animation: {
-          animateScale: true
-        }
-      }
-    },
     maintainAspectRatio: false
   };
 

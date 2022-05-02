@@ -63,15 +63,15 @@ const Dashboard = () => {
         </Row>
         <Row xs={1} sm={1} md={1} lg={3}>
           <Col>
-            {/* <SummaryChart chartData={income} /> */}
+            {/* <SummaryChart chartSource={income} /> */}
           </Col>
           <Col>
             {/* <SummaryChart chartData={expense} /> */}
           </Col>
           <Col>
             <BalanceChart
-              // income={calculate(income)}
-              // expense={calculate(expense)}
+              income={calculate(income)}
+              expense={calculate(expense)}
             />
           </Col>
         </Row>
