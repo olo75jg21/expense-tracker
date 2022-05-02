@@ -23,8 +23,10 @@ const ShowExpenses = () => {
   const expenses = useSelector(state => state.expenseTransaction);
 
   useEffect(() => {
-    dispatch(getExpenses());
-  }, [dispatch, expenses]);
+    if (expenses.expenses !== undefined) {
+      dispatch(getExpenses());
+    }
+  }, [expenses]);
 
   return (
     <div>

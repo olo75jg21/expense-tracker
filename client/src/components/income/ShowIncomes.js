@@ -19,9 +19,9 @@ import {
 import EditIncomeModal from "./EditIncomeModal";
 
 const ShowIncomes = () => {
-  const incomes = useSelector(state => state.incomeTransaction);
-
   const dispatch = useDispatch();
+
+  const incomes = useSelector(state => state.incomeTransaction);
 
   useEffect(() => {
     if (incomes.incomes !== undefined) {
@@ -44,7 +44,6 @@ const ShowIncomes = () => {
         </thead>
         {
           Array.from(incomes).map((income, index) => {
-            console.log(income)
             return (
               <tbody key={index}>
                 <tr>
