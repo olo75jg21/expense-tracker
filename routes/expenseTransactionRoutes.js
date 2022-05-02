@@ -6,7 +6,7 @@ const ExpenseTransaction = mongoose.model('ExpenseTransaction');
 module.exports = (app) => {
   app.post('/api/createExpense', requireLogin, async (req, res) => {
     try {
-      const { date, amount, title, description, cattegory } = req.body;
+      const { date, amount, title, description, category } = req.body;
 
       const expenseTransaction = new ExpenseTransaction({
         _user: req.user.id,
@@ -14,7 +14,7 @@ module.exports = (app) => {
         amount,
         title,
         description,
-        cattegory
+        category
       });
 
       await expenseTransaction.save();

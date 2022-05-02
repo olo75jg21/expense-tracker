@@ -83,8 +83,8 @@ const AddIncomeForm = ({ handleCloseModal }) => {
             <Row className='mt-1 mb-3'>
               <Col>
                 <div>
-                  <Field name="cattegory" component="select">
-                    <option value="" disabled>Please Select Cattegory</option>
+                  <Field name="category" component="select">
+                    <option value="" disabled>Please Select Category</option>
                     <option value="salary">Salary</option>
                     <option value="commission">Commission</option>
                     <option value="interest">Interest</option>

@@ -16,8 +16,6 @@ const Dashboard = () => {
   const income = useSelector(state => state.incomeTransaction);
   const expense = useSelector(state => state.expenseTransaction);
 
-  console.log(income);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,7 +23,7 @@ const Dashboard = () => {
       dispatch(getIncomes());
     }
 
-    if (expense.expense !== undefined) {
+    if (expense.expenses !== undefined) {
       dispatch(getExpenses());
     }
   }, [income, expense]);

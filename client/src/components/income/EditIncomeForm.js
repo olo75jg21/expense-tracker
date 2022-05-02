@@ -13,7 +13,7 @@ import { updateIncome } from '../../actions';
 import validate from '../../utils/validateForm';
 
 const EditIncomeForm = ({ income, handleCloseModal }) => {
-  const { _id, title, amount, cattegory, description } = income;
+  const { _id, title, amount, category, description } = income;
 
   const dispatch = useDispatch();
 
@@ -29,7 +29,7 @@ const EditIncomeForm = ({ income, handleCloseModal }) => {
       <Form
         onSubmit={onSubmit}
         validate={validate}
-        initialValues={{ title, amount, cattegory, description }}
+        initialValues={{ title, amount, category, description }}
         render={({ handleSubmit }) => (
 
           <form onSubmit={handleSubmit}>
@@ -81,8 +81,8 @@ const EditIncomeForm = ({ income, handleCloseModal }) => {
 
             <Row className='mt-1 mb-3'>
               <Col>
-                <Field name="cattegory" component="select">
-                  <option value="" disabled>Please Select Cattegory</option>
+                <Field name="category" component="select">
+                  <option value="" disabled>Please Select Category</option>
                   <option value="salary">Salary</option>
                   <option value="commission">Commission</option>
                   <option value="interest">Interest</option>

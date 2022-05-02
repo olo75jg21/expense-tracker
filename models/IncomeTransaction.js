@@ -27,7 +27,7 @@ const incomeTransactionSchema = new Schema({
     type: String,
     maxlength: 255
   },
-  cattegory: {
+  category: {
     type: String,
   }
 });

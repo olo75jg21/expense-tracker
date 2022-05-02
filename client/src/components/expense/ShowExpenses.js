@@ -36,7 +36,7 @@ const ShowExpenses = () => {
           <tr>
             <th style={{ width: '12%' }}>Title</th>
             <th style={{ width: '10%' }}>Amount</th>
-            <th style={{ width: '8%' }}>Cattegory</th>
+            <th style={{ width: '8%' }}>Category</th>
             <th style={{ width: '50%' }}>Description</th>
             <th style={{ width: '20%', wordBreak: 'normal' }}></th>
           </tr>
@@ -48,7 +48,7 @@ const ShowExpenses = () => {
                 <tr>
                   <td style={{ wordBreak: 'break-all' }}>{expense.title}</td>
                   <td style={{ wordBreak: 'break-all' }}>{expense.amount}</td>
-                  <td>{expense.cattegory}</td>
+                  <td>{expense.category}</td>
                   <td style={{ wordBreak: 'break-all' }}>{expense.description}</td>
                   <td>
                     <Container>

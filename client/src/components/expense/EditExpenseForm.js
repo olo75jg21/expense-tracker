@@ -13,7 +13,7 @@ import { updateExpense } from '../../actions';
 import validate from '../../utils/validateForm';
 
 const EditExpenseForm = ({ expense, handleCloseModal }) => {
-  const { _id, title, amount, cattegory, description } = expense;
+  const { _id, title, amount, category, description } = expense;
 
   const dispatch = useDispatch();
 
@@ -29,7 +29,7 @@ const EditExpenseForm = ({ expense, handleCloseModal }) => {
       <Form
         onSubmit={onSubmit}
         validate={validate}
-        initialValues={{ title, amount, cattegory, description }}
+        initialValues={{ title, amount, category, description }}
         render={({ handleSubmit }) => (
 
           <form onSubmit={handleSubmit}>
@@ -81,8 +81,8 @@ const EditExpenseForm = ({ expense, handleCloseModal }) => {
 
             <Row className='mt-1 mb-3'>
               <Col>
-                <Field name="cattegory" component="select">
-                  <option value="" disabled>Please Select Cattegory</option>
+                <Field name="category" component="select">
+                  <option value="" disabled>Please Select Category</option>
                   <option value="rent">Rent</option>
                   <option value="insurance">Insurance</option>
                   <option value="sanitation">Sanitation</option>

@@ -6,7 +6,7 @@ const IncomeTransaction = mongoose.model('IncomeTransaction');
 module.exports = (app) => {
   app.post('/api/createIncome', requireLogin, async (req, res) => {
     try {
-      const { date, amount, title, description, cattegory } = req.body;
+      const { date, amount, title, description, category } = req.body;
 
       const incomeTransaction = new IncomeTransaction({
         _user: req.user.id,
@@ -14,7 +14,7 @@ module.exports = (app) => {
         amount,
         title,
         description,
-        cattegory
+        category
       });
 
       await incomeTransaction.save();

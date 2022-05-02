@@ -30,7 +30,7 @@ const SummaryChart = ({ chartData }) => {
     const colors = [];
 
     result.forEach(item => {
-      labels.push(item.cattegory);
+      labels.push(item.category);
       data.push(item.amount);
       colors.push(randomRgba());
     });
