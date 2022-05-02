@@ -9,7 +9,7 @@ const initialState = {
   incomes: []
 };
 
-export default function foo(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case GET_INCOMES:
       return action.payload;
@@ -19,7 +19,10 @@ export default function foo(state = initialState, action) {
         incomes: [...state.incomes, action.payload]
       };
     case DELETE_INCOME:
-      return action.payload;
+      return {
+        ...state,
+        incomes: state.incomes.filter(income => income !== action.payload)
+      };
     case UPDATE_INCOME:
       return {
         ...state,

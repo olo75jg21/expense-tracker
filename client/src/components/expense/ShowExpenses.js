@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
 
 import {
   Table,
@@ -19,9 +18,9 @@ import {
 import EditExpenseModal from './EditExpenseModal';
 
 const ShowExpenses = () => {
-  const expenses = useSelector(state => state.expenseTransaction);
-
   const dispatch = useDispatch();
+
+  const expenses = useSelector(state => state.expenseTransaction);
 
   useEffect(() => {
     dispatch(getExpenses());

@@ -39,7 +39,7 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar bg="dark" expand="lg" className='text-light'>
+      <Navbar bg="dark" sticky="top" expand="lg" className='text-light'>
         <Container>
           <LinkContainer to={auth ? '/dashboard' : '/'}>
             <Navbar.Brand className='text-light'>Expense Tracker</Navbar.Brand>

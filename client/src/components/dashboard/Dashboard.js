@@ -16,12 +16,19 @@ const Dashboard = () => {
   const income = useSelector(state => state.incomeTransaction);
   const expense = useSelector(state => state.expenseTransaction);
 
+  console.log(income);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getIncomes());
-    dispatch(getExpenses());
-  }, []);
+    if (income.incomes !== undefined) {
+      dispatch(getIncomes());
+    }
+
+    if (expense.expense !== undefined) {
+      dispatch(getExpenses());
+    }
+  }, [income, expense]);
 
   if (!auth) {
     return (
@@ -50,19 +57,22 @@ const Dashboard = () => {
           <Col>
             <Summary
               title="Balance"
-              amount={calculateBalance(expense, income)}
+              amount={calculate(income) - calculate(expense)}
             />
           </Col>
         </Row>
         <Row xs={1} sm={1} md={1} lg={3}>
           <Col>
-            <SummaryChart chartData={income} />
+            {/* <SummaryChart chartData={income} /> */}
           </Col>
           <Col>
-            <SummaryChart chartData={expense} />
+            {/* <SummaryChart chartData={expense} /> */}
           </Col>
           <Col>
-            <BalanceChart income={calculate(income)} expense={calculate(expense)} />
+            <BalanceChart
+              // income={calculate(income)}
+              // expense={calculate(expense)}
+            />
           </Col>
         </Row>
       </div>
@@ -71,14 +81,11 @@ const Dashboard = () => {
 };
 
 const calculate = (arr) => {
-  let sum = 0;
-  Array.from(arr).forEach(item => sum += item.amount);
+  const sum = Array.from(arr).reduce((accumulator, object) => {
+    return accumulator + object.amount;
+  }, 0);
 
   return sum;
-}
-
-const calculateBalance = (expensesArr, incomesArr) => {
-  return calculate(incomesArr) - calculate(expensesArr);
 }
 
 export default Dashboard;

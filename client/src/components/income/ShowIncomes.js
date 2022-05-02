@@ -24,7 +24,9 @@ const ShowIncomes = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getIncomes());
+    if (incomes.incomes !== undefined) {
+      dispatch(getIncomes());
+    }
   }, [incomes]);
 
   return (
@@ -41,9 +43,10 @@ const ShowIncomes = () => {
           </tr>
         </thead>
         {
-          Array.from(incomes).map((income) => {
+          Array.from(incomes).map((income, index) => {
+            console.log(income)
             return (
-              <tbody key={income._id}>
+              <tbody key={index}>
                 <tr>
                   <td style={{ wordBreak: 'break-all' }}>{income.title}</td>
                   <td style={{ wordBreak: 'break-all' }}>{income.amount}</td>
