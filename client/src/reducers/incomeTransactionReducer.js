@@ -16,13 +16,13 @@ export default function (state = initialState, action) {
     case ADD_INCOME:
       return {
         ...state,
-        incomes: [...state.incomes, action.payload]
+        incomes: [...state, action.payload]
       };
     case DELETE_INCOME:
       return {
         ...state,
-        incomes: state.incomes.filter(income => income !== action.payload)
-      };
+        incomes: [state.filter(item => item !== action.payload)] 
+      }
     case UPDATE_INCOME:
       return {
         ...state,
