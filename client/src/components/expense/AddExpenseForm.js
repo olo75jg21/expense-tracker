@@ -19,8 +19,6 @@ const AddExpenseForm = ({ handleCloseModal }) => {
   const onSubmit = async (values) => {
     dispatch(addExpense(values));
     handleCloseModal();
-
-    console.log('expenseAdded');
   }
 
   return (

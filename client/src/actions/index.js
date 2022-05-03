@@ -27,7 +27,6 @@ export const getIncomes = () => async (dispatch) => {
 export const addIncome = (income) => async (dispatch) => {
   const res = await axios.post('/api/createIncome/', income);
 
-  console.log(res.data)
   dispatch({ type: ADD_INCOME, payload: res.data });
 }
 

@@ -19,8 +19,6 @@ const AddIncomeForm = ({ handleCloseModal }) => {
   const onSubmit = async (values) => {
     dispatch(addIncome(values));
     handleCloseModal();
-
-    console.log('incomeAdded');
   }
 
   return (

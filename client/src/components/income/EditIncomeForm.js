@@ -20,8 +20,6 @@ const EditIncomeForm = ({ income, handleCloseModal }) => {
   const onSubmit = async (values) => {
     dispatch(updateIncome(_id, values));
     handleCloseModal();
-
-    console.log('incomeEdited');
   }
 
   return (

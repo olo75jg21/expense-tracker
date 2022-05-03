@@ -20,8 +20,6 @@ const EditExpenseForm = ({ expense, handleCloseModal }) => {
   const onSubmit = async (values) => {
     dispatch(updateExpense(_id, values));
     handleCloseModal();
-
-    console.log('expenseEdited');
   }
 
   return (
