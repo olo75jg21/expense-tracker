@@ -6,6 +6,7 @@
 * [Setup](#setup)
 
 ## General info
+Live: https://warm-tor-06300.herokuapp.com/
 App that allows us to track our expenses and incomes.
 
 ## Technologies
